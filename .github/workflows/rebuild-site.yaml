@@ -10,6 +10,7 @@ jobs:
     outputs:
       repo: ${{ steps.echo.outputs.repo }}
       email: ${{ steps.echo.outputs.email }}
+      slub: ${{ steps.echo.outputs.slug }}
     steps:
       - id: echo
         run: |
@@ -28,7 +29,7 @@ jobs:
     uses: hubverse-org/hub-dashboard-control-room/.github/workflows/generate-site.yaml@znk/no-token
     with:
       repos: '${{ fromJSON(needs.setup.outputs.repo) }}'
-      slug: "${{ env.GITHUB_ACTOR }}"
+      slug: '${{ needs.setup.outputs.slug }}'
       email: '${{ needs.setup.outputs.email }}'
     secrets:
       token: ${{ github.token }}
