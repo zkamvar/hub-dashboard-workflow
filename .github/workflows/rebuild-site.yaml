@@ -33,4 +33,5 @@ jobs:
       slug: '${{ needs.setup.outputs.slug }}'
       email: '${{ needs.setup.outputs.email }}'
     secrets:
-      token: ${{ github.token }}
+      id: 'none'
+      key: ${{ github.token }}
