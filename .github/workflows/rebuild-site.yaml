@@ -15,10 +15,13 @@ jobs:
       - id: echo
         run: |
           name="${{ github.event.repository.name }}"
-          owner="${{ env.GITHUB_ACTOR || env.GITHUB_REPOSITORY_OWNER }}"
-          id="${{ env.GITHUB_ACTOR_ID || env.GITHUB_REPOSITORY_OWNER_ID}}"
+          owner="${{ github.event.repository.owner.login }}"
+          id="${{ github.event.repository.owner.id }}"
           email="$id+$owner@users.noreply.github.com"
-          echo [{'"'name'"': '"'$name'"', '"'owner'"': '"'$owner'"'}] >> "$GITHUB_OUTUPT"
+          {
+            echo 'repo<<EOF'
+            echo [{"name": "$name", "owner": "$owner"}]
+          } >> "$GITHUB_OUTPUT"
           echo slug=$owner >> "$GITHUB_OUTPUT"
           echo email=$email >> "$GITHUB_OUTPUT"
   site:
