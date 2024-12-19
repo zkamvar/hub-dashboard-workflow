@@ -18,11 +18,7 @@ jobs:
           owner="${{ env.GITHUB_ACTOR || env.GITHUB_REPOSITORY_OWNER }}"
           id="${{ env.GITHUB_ACTOR_ID || env.GITHUB_REPOSITORY_OWNER_ID}}"
           email="$id+$owner@users.noreply.github.com"
-          {
-            echo 'repo<<EOF'
-            echo [{"name": "$name", "owner": "$owner"}]
-            echo EOF
-          } >> "$GITHUB_OUTUPT"
+          echo [{'"'name'"': '"'$name'"', '"'owner'"': '"'$owner'"'}] >> "$GITHUB_OUTUPT"
           echo slug=$owner >> "$GITHUB_OUTPUT"
           echo email=$email >> "$GITHUB_OUTPUT"
   site:
