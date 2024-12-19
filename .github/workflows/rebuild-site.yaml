@@ -15,8 +15,9 @@ jobs:
       - id: echo
         run: |
           name="${{ github.event.repository.name }}"
-          owner="${{ env.GITHUB_ACTOR }}"
-          email="${{ env.GITHUB_ACTOR_ID }}+$owner@users.noreply.github.com"
+          owner="${{ env.GITHUB_ACTOR || GITHUB_REPOSITORY_OWNER }}"
+          id="${{ env.GITHUB_ACTOR_ID || GITHUB_REPOSITORY_OWNER_ID}}"
+          email="$id+$owner@users.noreply.github.com"
           {
             echo 'repo<<EOF'
             echo [{"name": "$name", "owner": "$owner"}]
