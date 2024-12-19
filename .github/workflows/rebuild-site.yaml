@@ -34,4 +34,4 @@ jobs:
       email: '${{ needs.setup.outputs.email }}'
     secrets:
       id: 'none'
-      key: ${{ github.token }}
+      key: ${{ secrets.GITHUB_TOKEN }}
