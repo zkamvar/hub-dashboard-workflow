@@ -28,7 +28,7 @@ jobs:
     uses: hubverse-org/hub-dashboard-control-room/.github/workflows/generate-site.yaml@znk/no-token
     with:
       repos: '${{ fromJSON(needs.setup.outputs.repo) }}'
-      slug: '${{ env.GITHUB_ACTOR }}'
+      slug: "${{ env.GITHUB_ACTOR }}"
       email: '${{ needs.setup.outputs.email }}'
     secrets:
       token: ${{ github.token }}
