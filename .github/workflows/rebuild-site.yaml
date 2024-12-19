@@ -21,6 +21,7 @@ jobs:
           {
             echo 'repo<<EOF'
             echo [{"name": "$name", "owner": "$owner"}]
+            echo EOF
           } >> "$GITHUB_OUTPUT"
           echo slug=$owner >> "$GITHUB_OUTPUT"
           echo email=$email >> "$GITHUB_OUTPUT"
