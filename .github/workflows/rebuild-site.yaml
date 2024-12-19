@@ -18,7 +18,7 @@ jobs:
           owner="${{ env.GITHUB_ACTOR }}"
           email="${{ env.GITHUB_ACTOR_ID }}+$owner@users.noreply.github.com"
           {
-            echo repo<<EOF
+            echo 'repo<<EOF'
             echo [{"name": "$name", "owner": "$owner"}]
             echo EOF
           } >> "$GITHUB_OUTUPT"
