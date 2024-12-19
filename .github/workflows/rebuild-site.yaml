@@ -11,17 +11,18 @@ jobs:
       repo: ${{ steps.echo.outputs.repo }}
       email: ${{ steps.echo.outputs.email }}
     steps:
-      run: |
-        name="${{ github.event.repository.name }}"
-        owner="${{ env.GITHUB_ACTOR }}"
-        email="${{ env.GITHUB_ACTOR_ID }}+$owner@users.noreply.github.com"
-        {
-          echo repo<<EOF
-          echo [{"name": "$name", "owner": "$owner"}]
-          echo EOF
-        } >> "$GITHUB_OUTUPT"
-        echo slug=$owner >> "$GITHUB_OUTPUT"
-        echo email=$email >> "$GITHUB_OUTPUT"
+      - id: echo
+        run: |
+          name="${{ github.event.repository.name }}"
+          owner="${{ env.GITHUB_ACTOR }}"
+          email="${{ env.GITHUB_ACTOR_ID }}+$owner@users.noreply.github.com"
+          {
+            echo repo<<EOF
+            echo [{"name": "$name", "owner": "$owner"}]
+            echo EOF
+          } >> "$GITHUB_OUTUPT"
+          echo slug=$owner >> "$GITHUB_OUTPUT"
+          echo email=$email >> "$GITHUB_OUTPUT"
   site:
     needs: [setup]
     uses: hubverse-org/hub-dashboard-control-room/.github/workflows/generate-site.yaml@znk/no-token
