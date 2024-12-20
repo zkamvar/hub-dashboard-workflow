@@ -1,7 +1,8 @@
 name: "Rebuild Data"
 on:
   workflow_dispatch:
-  push:
+  schedule:
+    - cron: "17 19 * * 5"
 
 permissions:
   contents: write
