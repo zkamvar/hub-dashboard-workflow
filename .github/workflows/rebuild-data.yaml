@@ -31,7 +31,7 @@ jobs:
           echo email=$email >> "$GITHUB_OUTPUT"
   site:
     needs: [setup]
-    uses: hubverse-org/hub-dashboard-control-room/.github/workflows/generate-data.yaml@znk/no-token
+    uses: hubverse-org/hub-dashboard-control-room/.github/workflows/generate-data.yaml@main
     with:
       repos: '${{ needs.setup.outputs.repo }}'
       slug: '${{ needs.setup.outputs.slug }}'
