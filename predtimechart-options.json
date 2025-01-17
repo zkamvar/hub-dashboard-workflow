@@ -269,11 +269,15 @@
             "2024-11-30",
             "2024-12-07",
             "2024-12-14",
-            "2024-12-21"
+            "2024-12-21",
+            "2024-12-28",
+            "2025-01-04",
+            "2025-01-11",
+            "2025-01-18"
         ]
     },
-    "initial_as_of": "2024-12-21",
-    "current_date": "2024-12-21",
+    "initial_as_of": "2025-01-18",
+    "current_date": "2025-01-18",
     "models": [
         "CADPH-FluCAT_Ensemble",
         "CEPH-Rtrend_fluH",
@@ -285,6 +289,7 @@
         "ISU_NiemiLab-GPE",
         "ISU_NiemiLab-NLH",
         "JHUAPL-DMD",
+        "JHUAPL-Morris",
         "JHU_CSSE-CSSE_Ensemble",
         "LUcompUncertLab-chimera",
         "LosAlamos_NAU-CModel_Flu",
@@ -316,6 +321,7 @@
         "UMass-flusion",
         "UMass-trends_ensemble",
         "UNC_IDD-InfluPaint",
+        "UVAFluX-CESGCN",
         "UVAFluX-Ensemble",
         "VTSanghani-Ensemble",
         "VTSanghani-PRIME",
